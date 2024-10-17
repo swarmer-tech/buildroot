@@ -329,7 +329,13 @@ config BR2_PACKAGE_GST1_PLUGINS_BAD_PLUGIN_Y4M
 	help
 	  Demuxes/decodes YUV4MPEG streams
 
+
 comment "plugins with external dependencies"
+
+config BR2_PACKAGE_GST1_PLUGINS_BAD_PLUGIN_OPENCV4
+	bool "gst-opencv4"
+	help
+	  Enable opencv support
 
 config BR2_PACKAGE_GST1_PLUGINS_BAD_PLUGIN_AES
 	bool "aes"

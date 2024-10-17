@@ -72,8 +72,7 @@ GST1_PLUGINS_BAD_CONF_OPTS += \
 	-Dwasapi2=disabled \
 	-Dmagicleap=disabled \
 	-Disac=disabled \
-	-Diqa=disabled \
-	-Dopencv=disabled
+	-Diqa=disabled
 
 GST1_PLUGINS_BAD_DEPENDENCIES = gst1-plugins-base gstreamer1
 
@@ -824,6 +823,15 @@ GST1_PLUGINS_BAD_DEPENDENCIES += zxing-cpp
 else
 GST1_PLUGINS_BAD_CONF_OPTS += -Dzxing=disabled
 endif
+
+ifeq ($(BR2_PACKAGE_GST1_PLUGINS_BAD_PLUGIN_OPENCV4),y)
+GST1_PLUGINS_BAD_CONF_OPTS += -Dopencv=enabled
+GST1_PLUGINS_BAD_DEPENDENCIES += opencv4
+GST1_PLUGINS_BAD_DEPENDENCIES += opencv4-contrib
+else
+GST1_PLUGINS_BAD_CONF_OPTS += -Dopencv=disabled
+endif
+
 
 # Add GPL license if GPL licensed plugins enabled.
 ifeq ($(GST1_PLUGINS_BAD_HAS_GPL_LICENSE),y)
