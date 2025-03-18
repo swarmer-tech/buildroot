@@ -96,4 +96,8 @@ define FLUENT_BIT_INSTALL_INIT_SYSV
 		$(TARGET_DIR)/etc/init.d/S99fluent-bit
 endef
 
+ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+FLUENT_BIT_DEPENDENCIES += systemd
+endif
+
 $(eval $(cmake-package))
