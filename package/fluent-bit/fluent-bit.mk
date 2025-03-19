@@ -63,6 +63,10 @@ else
 FLUENT_BIT_CONF_OPTS += -DFLB_LUAJIT=No
 endif
 
+ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+FLUENT_BIT_DEPENDENCIES += systemd
+endif
+
 # Force bundled miniz to be linked statically.
 # https://github.com/fluent/fluent-bit/issues/6711
 FLUENT_BIT_CONF_OPTS += \
